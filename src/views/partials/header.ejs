@@ -1,0 +1,62 @@
+<header>
+    <div class="navbar">
+        <div class="leftnav">            
+            <div class="menuicon" onclick="navDisplay(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <a href="/">
+                <svg viewBox="0 0 111 30" class="notflix-logo" focusable="false">
+                    <g id="netflix-logo" fill="red">
+                        <path id="Fill-14" class="st0" d="M105.1,14.3L111,30c-1.7-0.3-3.5-0.6-5.3-0.8l-3.3-8.7l-3.4,8c-1.7-0.3-3.3-0.4-5-0.6l6-13.8
+                            L94.5,0h5.1l3.1,7.9l3.3-7.9h5.1L105.1,14.3z M90.5,0h-4.6v27.2c1.5,0.1,3.1,0.2,4.6,0.3V0z M81.9,26.9c-4.2-0.3-8.4-0.5-12.7-0.6
+                            V0h4.7v21.9c2.7,0.1,5.4,0.3,8,0.4V26.9z M64.2,10.7v4.7h-6.4V26h-4.6V0h13.1v4.7h-8.5v6H64.2z M45.3,4.7v21.6
+                            c-1.6,0-3.2,0-4.7,0.1V4.7h-4.8V0h14.4v4.7H45.3z M24.5,22.7c1.8-0.2,3.2-0.2,4.1-0.3c0.4,0,0.9,0,1.9-0.1c1,0,1.7-0.1,2.3-0.1
+                            c0,1.5,0,3,0,4.5l-13,1V0h13v4.7c-1.3,0-2.6,0-3.9,0c-1.5,0-2.9,0-4.4,0C24.5,10.7,24.5,16.7,24.5,22.7z M4.8,13v16.4
+                            C3.1,29.5,1.6,29.7,0,30V0h4.5l6.1,17V0h4.7v28.1c-1.7,0.3-3.3,0.4-5.1,0.6L4.8,13z M28.2,22.4c1.5-0.1,3-0.2,4.6-0.2
+                            c0-5.8,0-11.6,0-17.5h-4.6C28.2,10.6,28.2,16.5,28.2,22.4z M29.4,22 M29.3,22 M37.2,18.1 M37.6,19.1 M38.8,34.7"/>
+                    </g>
+                </svg>
+            </a>
+        </div>
+        <form action="" class="navsearch">
+            <input type="text" id="search" name="search" placeholder="Buscar" autocomplete="off" aria-label="barra de busqueda">
+            <button type="submit" aria-label="botón de busqueda"><i class="fas fa-search"></i></button>
+        </form>      
+        <script>
+            function navDisplay(x) {
+            x.classList.toggle("change");
+            var y = document.getElementById("nav-menu-mobile");
+            if (y.style.display === "flex") {
+                y.style.display = "none";
+            } else {
+                y.style.display = "flex";
+            }}
+        </script>
+    </div>        
+    <div id="nav-menu-mobile">
+        <div class="nav-header-user-menu">
+            <div class="nav-header-mobile-user-info">
+                <div class="nav-user-icon"><i class="far fa-user"></i></div>
+                <div class="nav-mobile-user-welcome">
+                    <h3 class="nav-mobile-user-title">Bienvenido</h3>
+                    <p class="nav-mobile-user-text">Ingresá a tu cuenta</p>
+                </div>                
+            </div>
+            <div class="nav-mobile-user-buttons">
+                <a class="nav-mobile-button-filled" href="/users/login">Ingresá</a>
+                <a class="nav-mobile-button-outlined" href="/users/registro">Creá tu cuenta</a>
+            </div>
+        </div>
+        <div class="nav-menu-section">
+            <a href="/new">Lanzamientos</a>
+            <a href="/recommended">Recomendadas</a>
+            <a href="/mylist">Mi Lista</a>
+        </div>
+        <div class="nav-menu-section">
+            <a href="/movies">Peliculas</a>
+            <a href="/series">Series</a>
+        </div>
+    </div>    
+</header>
