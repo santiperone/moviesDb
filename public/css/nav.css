@@ -84,23 +84,23 @@ header{
 
 #nav-menu-mobile {
     display: none;
-    background-color: white;
+    background-color: #222;
     flex-direction: column;
     transition: 0.3s;    
 }
 
 .nav-header-user-menu {
     padding: 19px 24px;
-    border-bottom: 1.5px solid rgba(90,90,90,0.1);
+    border-bottom: 1.5px solid rgba(90,90,90,0.6);
 }
 .nav-header-mobile-user-info {
     display: flex;
     margin-bottom: 10px;
+    padding: 0 4px;
 }
 .nav-user-icon {
     background-color: #ededed;
     color: rgba(90,90,90,0.2);
-    border-radius: 28px;
     font-size: 35px;
     display: inline-flex;
     height: 56px;
@@ -119,19 +119,18 @@ header{
     font-size: 16px;
     margin: 0px;
     font-weight: 600;
-    color: #333;
 }
 .nav-mobile-user-text {
     font-size: 14px;
     margin: 0px;
-    color: rgba(0,0,0,.45);
+    color: #999;
 }
 .nav-mobile-user-buttons {
     display: flex;
     font-size: 14px;
 }
 .nav-mobile-button-filled {
-    background-color: #3484fa;
+    background-color: #e50914;
     color: white;
     flex: 1 1 50%;
     padding: 12px 0;
@@ -142,8 +141,8 @@ header{
 }
 .nav-mobile-button-outlined {
     background-color: white;
-    color: #3484fa;
-    border: 1px solid #3484fa;
+    color: #e50914;
+    border: 1px solid #e50914;
     flex: 1 1 50%;
     padding: 12px 0;
     margin: 4px;
@@ -158,13 +157,12 @@ header{
     display: flex;
     flex-direction: column;
     padding: 15px 10px;
-    border-bottom: 1.5px solid rgba(90,90,90,0.1);
+    border-bottom: 1.5px solid rgba(90,90,90,0.6);
 }
 .nav-menu-section a {
     padding: 8px 20px;
     margin-top: 4px;
     margin-bottom: 4px;
-    color: rgba(0,0,0,.8);
     text-decoration: none;
 }
 .nav-menu-section i {
