@@ -41,7 +41,8 @@ module.exports = {
     },
     search: async function(req, res) {
         try {
-            const movies = await db.Movie.findAll({where: {title: {[Op.like]: '%'+ +'%'}}});
+            console.log(req.body);            
+            const movies = await db.Movie.findAll({where: {title: {[Op.like]: '%'+ req.body.search +'%'}}});
             res.render('movies', { movies })
         } catch (error) {
             res.send(error.message)
