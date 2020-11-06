@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+<body>
+    <%- include('partials/header') %>
+
+    <main>
+        <h1><%= movie.title %> </h1>
+        <ul>
+            <li>Rating: <%= movie.rating %></li>         
+            <li>Premios: <%= movie.awards %></li>         
+            <li>Duración: <%= movie.length %></li>         
+            <li>Fecha de estreno: <%= movie.release_date %></li>         
+        </ul>
+        <div class="nav-mobile-user-buttons">
+            <a class="nav-mobile-button-filled" href="/users/login">Modificar</a>
+            <a class="nav-mobile-button-outlined" href="/users/registro">Borrar</a>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %> 
+</body>
+</html>

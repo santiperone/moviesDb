@@ -21,64 +21,13 @@ a {
     text-decoration: none;
 }
 
-.home-banner {
-    background-color: rgba(90,90,90,0.2);
-}
-.home-banner img {
-    width: 100%;
-}
 main {
     background-color: rgba(90,90,90,0.2);
     padding: 4px 10px;
 }
-main section {
-    background-color: #fff;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-    border-radius: 6px;
-    margin: 20px 0px;
+.movie-list {
+    margin-bottom: 10px;
 }
-main section h2 {
-    color: rgba(90,90,90,1);    
-    margin: 0px;
-    padding: 8px;
-}
-.articles {
-    display: flex;
-    flex-direction: column;
-}
-.product {
-    display: flex;
-    border-top: 1.5px solid rgba(90,90,90,0.1);
-    padding: 2px;
-}
-.product img {
-    height: 104px;
-    width: 104px;
-    flex: 0 0 104px;
-}
-.product-text {
-    display: block;
-    align-self: center;
-    padding: 7px;
-}
-.product-text h3 {
-    color: #424242;
-    font-size: 14px;
-    margin: 0px;
-}
-.product-text .price {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 4px;
-    margin-top: 4px;
-}
-.product-text .green {
-    color: #00a650 !important;
-    font-size: 12px;
-    margin: 0px;
-}
-
-
 
 
 

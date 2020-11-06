@@ -6,7 +6,9 @@
 
     <main>
         <ul>
-            <li><a href="/movies/">Pelicula</a></li>
+            <% movies.forEach(movie => { %>
+            <li class="movie-list"><a href="/movies/detail/<%= movie.id %>"><%= movie.title %> </a></li>
+            <% }) %>            
         </ul>
     </main>
 
