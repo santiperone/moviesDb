@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+<body>
+    <%- include('partials/header') %> 
+    <h1 class="user-form-title">¿Desea eliminar <%= movie.title %>?</h1>
+    <form class="user-form" action="/movies/delete/<%= movie.id %> " method="POST">
+        <button type="submit" class="submit-button">Eliminar</button>
+    </form>
+    <div class="nav-mobile-user-buttons" style="padding: 0 30px;">
+        <a class="nav-mobile-button-outlined" href="/movies">Regresar</a>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>

@@ -13,7 +13,9 @@ module.exports = (sequelize, DataTypes) => {
     }
     let config = {
         tableName: 'movies',
-        timestamps: false,
+        createdAt: 'created_at',
+        updatedAt: 'updated_at',
+        paranoid: true
     }
     const movie = sequelize.define(alias, cols, config);
     return movie

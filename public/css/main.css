@@ -1,13 +1,10 @@
 *{
-    font-family: 'Proxima Nova', sans-serif;
+    font-family: sans-serif;
     font-weight: 400;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     color: white;
 }
-@font-face {
-    font-family: 'Proxima Nova';
-    src: url("/public/font/ProximaNova-Regular.ttf");
-}
+
 body{
     margin: 0;
     -webkit-user-select: none; /* Safari */        
@@ -28,9 +25,6 @@ main {
 .movie-list {
     margin-bottom: 10px;
 }
-
-
-
 
 footer article {
     border-bottom: 1.5px solid rgba(90,90,90,0.1);

@@ -41,9 +41,51 @@ module.exports = {
     },
     search: async function(req, res) {
         try {
-            console.log(req.body);            
+            // console.log(req.body);            
             const movies = await db.Movie.findAll({where: {title: {[Op.like]: '%'+ req.body.search +'%'}}});
             res.render('movies', { movies })
+        } catch (error) {
+            res.send(error.message)
+        }
+    },
+    createForm: function(req, res) {
+        res.render('createMovie');
+    },
+    create: async function(req, res) {
+        try {                
+            await db.Movie.create(req.body);
+            res.redirect('/movies')
+        } catch (error) {
+            res.send(error.message)
+        }
+    },
+    editForm: async function(req, res) {
+        let movie = await db.Movie.findByPk(req.params.id);
+        movie = movie.dataValues;
+        movie.release_date = moment(movie.release_date).format('YYYY-MM-DD');
+        console.log(movie);
+        res.render('editMovie' , { movie });
+    },
+    edit: async function(req, res) {
+        try {                
+            await db.Movie.create(req.body);
+            res.redirect('/movies')
+        } catch (error) {
+            res.send(error.message)
+        }
+    },
+    deleteForm: async function(req, res) {
+        try {                
+            const movie = await db.Movie.findByPk(req.params.id);
+            res.render('deleteMovie', { movie });
+        } catch (error) {
+            res.send(error.message)
+        }
+    },
+    delete: async function(req, res) {
+        try {                
+            const movies = await db.Movie.destroy({where: {id: req.params.id}});
+            res.redirect('/movies')
         } catch (error) {
             res.send(error.message)
         }
