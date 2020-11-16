@@ -136,6 +136,10 @@
     top: -60px;
     font-size: 12px;
 }
+.user-form select[multiple] +label {
+    top: -120px;
+    font-size: 12px;
+}
 
 
 .submit-button {

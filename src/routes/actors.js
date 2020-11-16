@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/actorsController');
 
-/* GET users listing. */
 router.get('/', controller.all);
 router.get('/detail/:id', controller.detail);
 router.get('/create', controller.createForm);

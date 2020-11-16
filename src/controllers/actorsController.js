@@ -1,7 +1,5 @@
 const path = require('path');
 const db = require('../data/models')
-const moment = require('moment');
-const { Op } = require("sequelize");
 
 module.exports = {
     all: async function(req, res) {
@@ -14,7 +12,8 @@ module.exports = {
     },
     detail: async function(req, res) {
         try {
-            let actor = await db.Actor.findByPk(req.params.id);            
+            let actor = await db.Actor.findByPk(req.params.id, {include: ['movies', 'favorite_movie']});   
+            // res.json(actor)         
             res.render('actors/actorDetail', { actor });
         } catch (error) {
             res.send(error.message)
@@ -58,7 +57,7 @@ module.exports = {
         }
     },
     delete: async function(req, res) {
-        try {                
+        try {          
             await db.Actor.destroy({where: {id: req.params.id}});
             res.redirect('/actors')
         } catch (error) {

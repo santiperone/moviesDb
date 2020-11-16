@@ -3,7 +3,6 @@
 <%- include('../partials/head') %>
 <body>
     <%- include('../partials/header') %>
-
     <main>
         <h1><%= movie.title %> </h1>
         <ul>
@@ -11,7 +10,7 @@
             <li>Premios: <%= movie.awards %></li>         
             <li>Duración: <%= movie.length %></li>         
             <li>Fecha de estreno: <%= movie.release_date %></li>         
-            <li>Género: <a href="/genres/<%= movie.genre_id%>"><%= movie.Genre.name %></a></li>         
+            <li>Género: <% if (movie.Genre) { %><a href="/genres/<%= movie.genre_id%>"><%= movie.Genre.name %></a><% } else { %>Desconocido<% } %></li>         
             <li>Actores: 
                 <ul>
                     <% movie.actors.forEach(actor => { %>

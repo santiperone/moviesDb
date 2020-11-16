@@ -14,6 +14,18 @@
             <label for="rating">Rating</label>
         </div>
         <div>
+            <select name="genre_id" id="genre_id">
+                <% genres.forEach(genre => { %>
+                    <% if (genre.id == movie.genre_id) { %>
+                        <option value="<%= genre.id %>" selected><%= genre.name %></option>
+                    <% } else { %>
+                        <option value="<%= genre.id %>"><%= genre.name %></option>
+                    <% } %>
+                <% }) %>
+            </select>
+            <label for="genre_id">Género</label>
+        </div>
+        <div>
             <input type="text" id="awards" name="awards" required placeholder=" " value="<%= movie.awards %>">
             <label for="awards">Premios</label>
         </div>
@@ -25,7 +37,19 @@
             <input type="text" id="length" name="length" required placeholder=" " value="<%= movie.length %>">
             <label for="length">Duración (en minutos)</label>
         </div>
-
+        <div>
+            <select name="actors" id="actors" multiple>
+                <% actors.forEach(actor => { %>
+                    <% if (movie.actors.some(aP => aP.id === actor.id)) { %>
+                        <option value="<%= actor.id %>" selected><%= actor.first_name + ' ' + actor.last_name %></option>
+                    <% } else { %>                     
+                        <option value="<%= actor.id %>"><%= actor.first_name + ' ' + actor.last_name %></option>
+                    <% } %>
+                <% }) %>
+            </select>
+            <label for="actors">Actores</label>
+        </div>
+        
         <button type="submit" class="submit-button">Editar</button>
     </form>
 

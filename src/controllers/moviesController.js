@@ -14,11 +14,9 @@ module.exports = {
     },
     detail: async function(req, res) {
         try {
-            let movie = await db.Movie.findByPk(req.params.id, {
-                include: ['Genre', 'actors']
-            });
+            let movie = await db.Movie.findByPk(req.params.id, { include: ['Genre', 'actors']});
             movie = movie.dataValues;
-            // console.log(movie.actors);
+            // res.json(movie);
             movie.release_date = moment(movie.release_date).format('DD/MM/YYYY');
             res.render('movies/movieDetail', { movie });
         } catch (error) {
@@ -50,27 +48,40 @@ module.exports = {
             res.send(error.message)
         }
     },
-    createForm: function(req, res) {
-        res.render('movies/createMovie');
+    createForm: async function(req, res) {
+        const actors = await db.Actor.findAll()
+        const genres = await db.Genre.findAll()
+        res.render('movies/createMovie', { actors, genres });
     },
     create: async function(req, res) {
         try {                
-            await db.Movie.create(req.body);
-            res.redirect('/movies')
+            const newMovie = await db.Movie.create(req.body);
+            newMovie.addActors(req.body.actors);
+            res.redirect('/movies');
         } catch (error) {
             res.send(error.message)
         }
     },
     editForm: async function(req, res) {
-        let movie = await db.Movie.findByPk(req.params.id);
-        movie = movie.dataValues;
-        movie.release_date = moment(movie.release_date).format('YYYY-MM-DD');
-        res.render('movies/editMovie' , { movie });
+        try {
+            const actors = await db.Actor.findAll()
+            const genres = await db.Genre.findAll()
+            let movie = await db.Movie.findByPk(req.params.id, {include: ['actors']});
+            movie = movie.dataValues;
+            // res.json(movie);
+            movie.release_date = moment(movie.release_date).format('YYYY-MM-DD');
+            res.render('movies/editMovie' , { movie, genres, actors });
+        } catch (error) {
+            res.send(error.message)
+        }
+        
     },
     edit: async function(req, res) {
-        try {                
+        try {                            
             await db.Movie.update(req.body, {where: {id: req.params.id}});
-            res.redirect('/movies')
+            const edMovie = await db.Movie.findByPk(req.params.id);
+            edMovie.setActors(req.body.actors);
+            res.redirect('/movies');
         } catch (error) {
             res.send(error.message)
         }
@@ -84,8 +95,10 @@ module.exports = {
         }
     },
     delete: async function(req, res) {
-        try {                
-            const movies = await db.Movie.destroy({where: {id: req.params.id}});
+        try {          
+            const delMovie = await db.Movie.findByPk(req.params.id, {include: ['actors']});
+            delMovie.removeActors(delMovie.actors);
+            await db.Movie.destroy({where: {id: req.params.id}});
             res.redirect('/movies')
         } catch (error) {
             res.send(error.message)
