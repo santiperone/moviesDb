@@ -14,11 +14,12 @@ module.exports = {
     },
     detail: async function(req, res) {
         try {
-            let movie = await db.Movie.findByPk(req.params.id);
-            // console.log(movie);
+            let movie = await db.Movie.findByPk(req.params.id, {
+                include: ['Genre', 'actors']
+            });
             movie = movie.dataValues;
+            // console.log(movie.actors);
             movie.release_date = moment(movie.release_date).format('DD/MM/YYYY');
-            // console.log(movie.release_date);
             res.render('movies/movieDetail', { movie });
         } catch (error) {
             res.send(error.message)

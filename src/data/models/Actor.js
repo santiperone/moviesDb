@@ -14,6 +14,14 @@ module.exports = (sequelize, DataTypes) => {
         underscored: true,
         paranoid: true
     }
-    const actor = sequelize.define(alias, cols, config);
-    return actor
+    const Actor = sequelize.define(alias, cols, config);
+    Actor.associate = (models) => {
+        Actor.belongsToMany(models.Movie, {
+            as: 'movies',
+            through: 'actor_movie',            
+            foreignKey: 'genre_id',
+            otherKey: 'movie_id'
+        });
+    }
+    return Actor
 }

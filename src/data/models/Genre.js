@@ -9,9 +9,12 @@ module.exports = (sequelize, DataTypes) => {
     }
     let config = {
         tableName: 'genres',
-        underscorded: true,
+        underscored: true,
         paranoid: true
     }
-    const genre = sequelize.define(alias, cols, config);
-    return genre
+    const Genre = sequelize.define(alias, cols, config);
+    Genre.associate = (models) => {
+        Genre.hasMany(models.Movie);
+    }
+    return Genre
 }

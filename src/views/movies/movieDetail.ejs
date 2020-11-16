@@ -11,6 +11,14 @@
             <li>Premios: <%= movie.awards %></li>         
             <li>Duración: <%= movie.length %></li>         
             <li>Fecha de estreno: <%= movie.release_date %></li>         
+            <li>Género: <a href="/genres/<%= movie.genre_id%>"><%= movie.Genre.name %></a></li>         
+            <li>Actores: 
+                <ul>
+                    <% movie.actors.forEach(actor => { %>
+                    <li><a href="/actors/detail/<%= actor.id %>"><%= actor.first_name + ' ' + actor.last_name %></a></li>                  
+                    <% }) %>
+                </ul>
+            </li>         
         </ul>
         <div class="nav-mobile-user-buttons">
             <a class="nav-mobile-button-filled" href="/movies/edit/<%= movie.id %>">Modificar</a>
