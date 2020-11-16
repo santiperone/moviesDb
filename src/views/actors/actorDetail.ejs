@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+
+    <main>
+        <h1><%= actor.first_name %> <%= actor.last_name %></h1>
+        <ul>
+            <li>Rating: <%= actor.rating %></li>         
+            <li>Pelicula Favorita: <%= actor.favorite_movie_id ? actor.favorite_movie_id : 'Ninguna' %></li>             
+        </ul>
+        <div class="nav-mobile-user-buttons">
+            <a class="nav-mobile-button-filled" href="/actors/edit/<%= actor.id %>">Modificar</a>
+            <a class="nav-mobile-button-outlined" href="/actors/delete/<%= actor.id %>">Borrar</a>
+        </div>
+    </main>
+
+    <%- include('../partials/footer') %> 
+</body>
+</html>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-<%- include('partials/head') %>
+<%- include('../partials/head') %>
 <body>
-    <%- include('partials/header') %> 
+    <%- include('../partials/header') %> 
     <h1 class="user-form-title">Editando <%= movie.title %> </h1>
     <form class="user-form" action="/movies/edit/<%= movie.id %> " method="POST">
         <div>
@@ -29,6 +29,6 @@
         <button type="submit" class="submit-button">Editar</button>
     </form>
 
-    <%- include('partials/footer') %>
+    <%- include('../partials/footer') %>
 </body>
 </html>

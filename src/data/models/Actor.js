@@ -1,21 +1,19 @@
 const {sequelize, DataTypes} = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-    let alias = 'Movie';
+    let alias = 'Actor';
     let cols = {
         id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-        title: DataTypes.STRING,
-        awards: DataTypes.INTEGER,
+        first_name: DataTypes.STRING,
+        last_name: DataTypes.STRING,
         rating: DataTypes.DOUBLE,
-        length: DataTypes.INTEGER,
-        genre_id: DataTypes.INTEGER,
-        release_date: DataTypes.DATE
+        favorite_movie_id: DataTypes.INTEGER
     }
     let config = {
-        tableName: 'movies',
+        tableName: 'actors',
         underscored: true,
         paranoid: true
     }
-    const movie = sequelize.define(alias, cols, config);
-    return movie
+    const actor = sequelize.define(alias, cols, config);
+    return actor
 }
